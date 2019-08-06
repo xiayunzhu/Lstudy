@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Illuminate\Routing\Router;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+//use Illuminate\Support\Facades\Route;
+
+Route::group([
+    'namespace' => 'Api',
+    'prefix' => 'open'
+
+], function (Router $router) {
+
+    # 登录页面
+    $router->get('add', 'UserController@add');
+
 });
